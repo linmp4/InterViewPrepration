@@ -55,25 +55,5 @@ public class VolleyActivity extends BaseActivity {
         String url = "http://api.fir.im/apps/latest/5881b8c0959d691f5c00044c?api_token=e0be056f9e2f0e9623c5dd69b32e488c";
     }
 
-    public String json(String json) throws JSONException {
-        if (StringCheck.isEmpty(json)) {
-            return null;
-        }
-        String message = null;
-        try {
-            json = json.trim();
-            if (json.startsWith("{")) {
-                JSONObject jsonObject = new JSONObject(json);
-                message = jsonObject.toString(4);
-            }
-            if (json.startsWith("[")) {
-                JSONArray jsonArray = new JSONArray(json);
-                message = jsonArray.toString(4);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return message;
-    }
 
 }

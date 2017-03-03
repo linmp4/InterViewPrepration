@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 字符串格式检查
  */
@@ -182,10 +186,31 @@ public class StringCheck {
         for (int i = 0; i < listAdapter.getCount(); i++) {
             View listItem = listAdapter.getView(i, null, listView);
             listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
+            totalHeight += listItem.getMeasuredHeight() * 3;
         }
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
+    }
+
+    public static String Tojson(String json) throws JSONException {
+        if (StringCheck.isEmpty(json)) {
+            return null;
+        }
+        String message = null;
+        try {
+            json = json.trim();
+            if (json.startsWith("{")) {
+                JSONObject jsonObject = new JSONObject(json);
+                message = jsonObject.toString(4);
+            }
+            if (json.startsWith("[")) {
+                JSONArray jsonArray = new JSONArray(json);
+                message = jsonArray.toString(4);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return message;
     }
 }
