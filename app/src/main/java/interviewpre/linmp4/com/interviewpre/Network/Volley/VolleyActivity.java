@@ -1,4 +1,4 @@
-package interviewpre.linmp4.com.interviewpre.Network.Okhttp;
+package interviewpre.linmp4.com.interviewpre.Network.Volley;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +13,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
+import interviewpre.linmp4.com.interviewpre.Network.Okhttp.OkHttpUtil;
 import interviewpre.linmp4.com.interviewpre.R;
+import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
 import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
@@ -52,24 +53,6 @@ public class VolleyActivity extends BaseActivity {
 
     private void getAsynHttp() {
         String url = "http://api.fir.im/apps/latest/5881b8c0959d691f5c00044c?api_token=e0be056f9e2f0e9623c5dd69b32e488c";
-        OkHttpUtil.getAsyn(getAQuery().getContext(), url, new OkHttpUtil.HttpListener() {
-            @Override
-            public void callback(String url, int code, String response) {
-                if (code == -1)
-                    return;
-                try {
-                    String temp = json(response);
-                    if (temp == null) {
-                        ToastUtil.makeText(getAQuery().getContext(), "json格式错误");
-                    } else {
-                        getAQuery().id(R.id.tv_code).text(temp);
-                        StringCheck.setListViewHeightBasedOnChildren(listView);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
     public String json(String json) throws JSONException {
