@@ -12,6 +12,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * 字符串格式检查
  */
@@ -212,5 +215,31 @@ public class StringCheck {
             e.printStackTrace();
         }
         return message;
+    }
+
+    public abstract static class UpdateUI {
+        public abstract void Success(String temp);
+
+        public UpdateUI(String response, int code, String url, LinkedHashMap<String, String> formMap) {
+            String temp = null;
+            try {
+                temp = StringCheck.Tojson(response);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            String a = "";
+            if (formMap != null) {
+                a += "\n\n参数:\n";
+                for (final Map.Entry<String, String> entry : formMap.entrySet()) {
+                    a += "\"" + entry.getKey() + "\" : \"" + entry.getValue() + "\"\n";
+                }
+            }
+            if (temp == null) {
+                Success("json格式错误");
+            } else {
+                temp = "请求连接：\n" + url + "\n\n状态码：" + code + a + "\n\n返回结果:\n" + temp;
+                Success(temp);
+            }
+        }
     }
 }

@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 import okhttp3.Call;
@@ -23,13 +25,7 @@ import okhttp3.Response;
 public class OkHttpUtil {
 
     private static OkHttpUtil mInstance;
-
-    public interface HttpListener {
-        public void callback(String url, int code, String response);
-    }
-
     private static OkHttpClient mOkHttpClient;
-    private static long cacheSize = 10 * 1024 * 1024;
     private static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("text/x-markdown; charset=utf-8");
     private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
 
@@ -56,6 +52,10 @@ public class OkHttpUtil {
 
     static void getAsyn(Context context, String url, HttpListener listener) {
         getInstance()._getAsyn((Activity) context, url, listener);
+    }
+
+    static void postAsyn(Context context, String url, LinkedHashMap<String, String> formBody, HttpListener listener) {
+        getInstance()._postAsyn((Activity) context, url, formBody, listener);
     }
 
     /**
@@ -102,33 +102,53 @@ public class OkHttpUtil {
 
     /**
      * post异步请求
+     *
+     * @param context
+     * @param url
+     * @param formMap
+     * @param listener
      */
-    private void postAsynHttp() {
-        RequestBody formBody = new FormBody.Builder()
-                .add("size", "10")
-                .build();
+    private void _postAsyn(final Activity context, final String url, LinkedHashMap<String, String> formMap, final HttpListener listener) {
+        FormBody.Builder temp = new FormBody.Builder();
+        for (final Map.Entry<String, String> entry : formMap.entrySet()) {
+            temp.add(entry.getKey(), entry.getValue());
+        }
+        RequestBody formBody = temp.build();
         Request request = new Request.Builder()
-                .url("http://api.1-blog.com/biz/bizserver/article/list.do")
+                .url(url)
                 .post(formBody)
                 .build();
         Call call = mOkHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(Call call, final IOException e) {
+                if (context == null || context.isDestroyed() || context.isFinishing())
+                    return;
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (listener != null)
+                            listener.callback(url, -1, e.getMessage());
 
+                        ToastUtil.makeText(context, "网络异常");
+                    }
+                });
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                String str = response.body().string();
-                Log.i("wangshu", str);
+                final int code = response.code();
+                final String body = response.body().string();
 
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Toast.makeText(getApplicationContext(), "请求成功", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+                if (context == null || context.isDestroyed() || context.isFinishing())
+                    return;
+                context.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (listener != null)
+                            listener.callback(url, code, body);
+                    }
+                });
             }
 
         });
@@ -162,7 +182,7 @@ public class OkHttpUtil {
      * 异步下载文件
      */
     private void downAsynFile() {
-        String url = "http://img.my.csdn.net/uploads/201603/26/1458988468_5804.jpg";
+        String url = "https://www.baidu.com/img/baidu_jgylogo3.gif";
         Request request = new Request.Builder().url(url).build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override

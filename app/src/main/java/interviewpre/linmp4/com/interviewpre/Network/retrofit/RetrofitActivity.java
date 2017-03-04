@@ -1,4 +1,4 @@
-package interviewpre.linmp4.com.interviewpre.Network.Okhttp;
+package interviewpre.linmp4.com.interviewpre.Network.retrofit;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import interviewpre.linmp4.com.interviewpre.Network.Okhttp.HttpListener;
 import interviewpre.linmp4.com.interviewpre.R;
 import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
+import retrofit2.Retrofit;
 
-public class OkHttpActivity extends BaseActivity {
+public class RetrofitActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,6 @@ public class OkHttpActivity extends BaseActivity {
         StringCheck.setListViewHeightBasedOnChildren(listView);
     }
 
-
     private List getData() {
         List<String> data = new ArrayList<String>();
         data.add("GET方法");
@@ -49,47 +50,50 @@ public class OkHttpActivity extends BaseActivity {
 
     private void getAsynHttp() {
         getdefaultpd().showDialog();
-        String url = "http://api.fir.im/apps/latest/5881b8c0959d691f5c00044c?api_token=e0be056f9e2f0e9623c5dd69b32e488c";
-        OkHttpUtil.getAsyn(getAQuery().getContext(), url, new HttpListener() {
-            @Override
-            public void callback(String url, int code, String response) {
-                getdefaultpd().dismissDialog();
-
-                new StringCheck.UpdateUI(response, code, url, null) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://api.fir.im/")
+                .build();
+        retrofit.create(FirService.class)
+                .getVersion()
+                .enqueue(new RetrofitCallback(new HttpListener() {
                     @Override
-                    public void Success(String temp) {
-                        getAQuery().id(R.id.tv_code).text(temp);
+                    public void callback(String url, int code, String response) {
+                        getdefaultpd().dismissDialog();
+                        new StringCheck.UpdateUI(response, code, url, null) {
+                            @Override
+                            public void Success(String temp) {
+                                getAQuery().id(R.id.tv_code).text(temp);
+                            }
+                        };
                     }
-                };
-            }
-        });
+                }));
     }
-
 
     private void postAsynHttp() {
         getdefaultpd().showDialog();
         String url = "http://web.juhe.cn:8080/constellation/getAll";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://web.juhe.cn:8080/")
+                .build();
 
         final LinkedHashMap<String, String> map = new LinkedHashMap<String, String>() {{
             put("consName", "天秤座");
             put("type", "today");
             put("key", "b68175b4019546b7272af37737e543c4");
         }};
-
-        OkHttpUtil.postAsyn(getAQuery().getContext(), url, map, new HttpListener() {
-            @Override
-            public void callback(String url, int code, String response) {
-                getdefaultpd().dismissDialog();
-
-                new StringCheck.UpdateUI(response, code, url, map) {
+        retrofit.create(StarService.class)
+                .getStar(map.get("consName"), map.get("type"), map.get("key"))
+                .enqueue(new RetrofitCallback(new HttpListener() {
                     @Override
-                    public void Success(String temp) {
-                        getAQuery().id(R.id.tv_code).text(temp);
+                    public void callback(String url, int code, String response) {
+                        getdefaultpd().dismissDialog();
+                        new StringCheck.UpdateUI(response, code, url, map) {
+                            @Override
+                            public void Success(String temp) {
+                                getAQuery().id(R.id.tv_code).text(temp);
+                            }
+                        };
                     }
-                };
-            }
-        });
+                }));
     }
-
-
 }

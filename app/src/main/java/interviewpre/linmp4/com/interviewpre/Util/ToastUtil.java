@@ -17,10 +17,10 @@ public class ToastUtil {
             @Override
             public void run() {
                 if (mToast == null) {
-                    mToast = Toast.makeText(ctx, text, Toast.LENGTH_LONG);
+                    mToast = Toast.makeText(ctx, text, Toast.LENGTH_SHORT);
                 } else {
                     mToast.setText(text);
-                    mToast.setDuration(Toast.LENGTH_LONG);
+                    mToast.setDuration(Toast.LENGTH_SHORT);
                 }
                 mToast.show();
             }

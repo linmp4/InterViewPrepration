@@ -53,6 +53,7 @@ public class VolleyActivity extends BaseActivity {
 
     private void getAsynHttp() {
         String url = "http://api.fir.im/apps/latest/5881b8c0959d691f5c00044c?api_token=e0be056f9e2f0e9623c5dd69b32e488c";
+
     }
 
 
