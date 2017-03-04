@@ -51,6 +51,10 @@
             android:name=".Picture.Picasso.PicassoActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".Picture.Fresco.FrescoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
         <activity
             android:name=".UI.Material.ui.activity.MaterialActivity"

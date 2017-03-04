@@ -26,6 +26,10 @@ public class BasePicActivity extends BaseActivity {
 
         iv_pic = (ImageView) findViewById(R.id.iv_pic);
 
+        InitUI();
+    }
+
+    public void InitUI() {
         ListView listView = (ListView) findViewById(R.id.lv_view);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, getData()));
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -11,6 +11,7 @@ import interviewpre.linmp4.com.interviewpre.Network.Okhttp.OkHttpActivity;
 import interviewpre.linmp4.com.interviewpre.Network.Volley.VolleyActivity;
 import interviewpre.linmp4.com.interviewpre.Network.android_async_http.AsyncHttpActivity;
 import interviewpre.linmp4.com.interviewpre.Network.retrofit.RetrofitActivity;
+import interviewpre.linmp4.com.interviewpre.Picture.Fresco.FrescoActivity;
 import interviewpre.linmp4.com.interviewpre.Picture.Glide.GlideActivity;
 import interviewpre.linmp4.com.interviewpre.Picture.Picasso.PicassoActivity;
 import interviewpre.linmp4.com.interviewpre.UI.Material.ui.activity.MaterialActivity;
@@ -33,6 +34,7 @@ public class MainActivity extends BaseActivity {
                 new MainModel("图片框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("Glide", GlideActivity.class));
                     add(new MainModel("Picasso", PicassoActivity.class));
+                    add(new MainModel("Fresco", FrescoActivity.class));
                 }}));
 
         final MainModel model3 =
