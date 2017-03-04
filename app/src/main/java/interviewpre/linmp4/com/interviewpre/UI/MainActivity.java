@@ -9,6 +9,7 @@ import interviewpre.linmp4.com.interviewpre.Model.ContextModel;
 import interviewpre.linmp4.com.interviewpre.Model.MainModel;
 import interviewpre.linmp4.com.interviewpre.Network.Okhttp.OkHttpActivity;
 import interviewpre.linmp4.com.interviewpre.Network.Volley.VolleyActivity;
+import interviewpre.linmp4.com.interviewpre.Network.android_async_http.AsyncHttpActivity;
 import interviewpre.linmp4.com.interviewpre.Network.retrofit.RetrofitActivity;
 import interviewpre.linmp4.com.interviewpre.UI.Material.ui.activity.MaterialActivity;
 
@@ -23,6 +24,7 @@ public class MainActivity extends BaseActivity {
                     add(new MainModel("OkHttp3", OkHttpActivity.class));
                     add(new MainModel("Retrofit2", RetrofitActivity.class));
                     add(new MainModel("Volley", VolleyActivity.class));
+                    add(new MainModel("android-async-http", AsyncHttpActivity.class));
                 }}));
 
         final MainModel model2 =

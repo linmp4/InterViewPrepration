@@ -222,11 +222,16 @@ public class StringCheck {
 
         public UpdateUI(String response, int code, String url, LinkedHashMap<String, String> formMap) {
             String temp = null;
-            try {
-                temp = StringCheck.Tojson(response);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (code==-1){
+                temp = response;
+            }else{
+                try {
+                    temp = StringCheck.Tojson(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+
             String a = "";
             if (formMap != null) {
                 a += "\n\n参数:\n";
