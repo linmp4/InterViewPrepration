@@ -1,0 +1,61 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/et_string_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="请输入要保存的内容 ..."
+        android:text="要保存的内容">
+
+        <requestFocus/>
+    </EditText>
+
+    <Button
+        android:id="@+id/bt_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存"/>
+
+    <Button
+        android:id="@+id/bt_read"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="读取"/>
+
+    <Button
+        android:id="@+id/bt_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清空"/>
+
+    <TextView
+        android:id="@+id/tv_string_res"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/iv_bitmap_save"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E5E5E5"/>
+
+    <ImageView
+        android:id="@+id/iv_bitmap_res"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:contentDescription="@null"/>
+</LinearLayout>

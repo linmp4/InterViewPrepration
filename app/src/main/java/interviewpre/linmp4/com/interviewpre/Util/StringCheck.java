@@ -222,9 +222,9 @@ public class StringCheck {
 
         public UpdateUI(String response, int code, String url, LinkedHashMap<String, String> formMap) {
             String temp = null;
-            if (code==-1){
+            if (code == -1) {
                 temp = response;
-            }else{
+            } else {
                 try {
                     temp = StringCheck.Tojson(response);
                 } catch (JSONException e) {
@@ -240,7 +240,7 @@ public class StringCheck {
                 }
             }
             if (temp == null) {
-                Success("json格式错误");
+                Success(response);
             } else {
                 temp = "请求连接：\n" + url + "\n\n状态码：" + code + a + "\n\n返回结果:\n" + temp;
                 Success(temp);

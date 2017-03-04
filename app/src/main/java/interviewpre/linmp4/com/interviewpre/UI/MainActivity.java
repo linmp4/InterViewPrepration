@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+import interviewpre.linmp4.com.interviewpre.Cache.ASimpleCache.ASimpleCacehActivity;
 import interviewpre.linmp4.com.interviewpre.Model.ContextModel;
 import interviewpre.linmp4.com.interviewpre.Model.MainModel;
 import interviewpre.linmp4.com.interviewpre.Network.Okhttp.OkHttpActivity;
@@ -22,7 +23,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final MainModel model1 =
+         final MainModel model1 =
                 new MainModel("网络框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("OkHttp3", OkHttpActivity.class));
                     add(new MainModel("Retrofit2", RetrofitActivity.class));
@@ -30,16 +31,21 @@ public class MainActivity extends BaseActivity {
                     add(new MainModel("android-async-http", AsyncHttpActivity.class));
                 }}));
 
-        final MainModel model2 =
-                new MainModel("图片框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+         final MainModel model2 =
+                new MainModel("图片加载框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("Glide", GlideActivity.class));
                     add(new MainModel("Picasso", PicassoActivity.class));
                     add(new MainModel("Fresco", FrescoActivity.class));
                 }}));
 
-        final MainModel model3 =
+         final MainModel model3 =
                 new MainModel("UI框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("Material Design", MaterialActivity.class));
+                }}));
+
+         final MainModel model4 =
+                new MainModel("缓存框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+                    add(new MainModel("ASimpleCache", ASimpleCacehActivity.class));
                 }}));
 
 
@@ -47,6 +53,7 @@ public class MainActivity extends BaseActivity {
             add(model1);
             add(model2);
             add(model3);
+            add(model4);
         }});
 
         startActivity(new Intent(this, ListActivity.class).putExtra("Content", ctx));
