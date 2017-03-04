@@ -12,7 +12,7 @@ import java.util.List;
 
 import interviewpre.linmp4.com.interviewpre.Network.HttpListener;
 import interviewpre.linmp4.com.interviewpre.R;
-import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
+import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
 
 public class AsyncHttpActivity extends BaseActivity {

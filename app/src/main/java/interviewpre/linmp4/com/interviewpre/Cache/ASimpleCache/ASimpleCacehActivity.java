@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 import interviewpre.linmp4.com.interviewpre.Model.ContextModel;
 import interviewpre.linmp4.com.interviewpre.Model.MainModel;
-import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
-import interviewpre.linmp4.com.interviewpre.UI.ListActivity;
+import interviewpre.linmp4.com.interviewpre.BaseActivity;
+import interviewpre.linmp4.com.interviewpre.UI.GobalListActivity;
 
 public class ASimpleCacehActivity extends BaseActivity {
 
@@ -24,7 +24,7 @@ public class ASimpleCacehActivity extends BaseActivity {
             add(new MainModel("Object类型", SaveObjectActivity.class));
         }});
 
-        startActivity(new Intent(this, ListActivity.class).putExtra("Content", ctx));
+        startActivity(new Intent(this, GobalListActivity.class).putExtra("Content", ctx));
         finish();
     }
 }

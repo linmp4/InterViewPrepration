@@ -65,7 +65,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
-            android:name=".UI.ListActivity"
+            android:name=".UI.GobalListActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
@@ -91,6 +91,10 @@
         <activity
             android:name=".Cache.ASimpleCache.SaveBitmapActivity"
             android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".UI.CodeView.CodeViewActivity"
+            android:screenOrientation="landscape"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
     </application>

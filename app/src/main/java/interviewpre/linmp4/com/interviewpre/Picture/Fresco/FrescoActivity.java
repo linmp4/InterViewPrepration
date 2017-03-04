@@ -1,12 +1,11 @@
 package interviewpre.linmp4.com.interviewpre.Picture.Fresco;
 
-import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.core.ImagePipeline;
 
 import interviewpre.linmp4.com.interviewpre.Picture.BasePicActivity;
 import interviewpre.linmp4.com.interviewpre.R;
@@ -14,16 +13,39 @@ import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class FrescoActivity extends BasePicActivity {
 
+    public static String code = "" +
+            "<!--XML布局-->\n" +
+            "<com.facebook.drawee.view.SimpleDraweeView\n" +
+            "          android:layout_width=\"wrap_content\"\n" +
+            "          android:layout_height=\"wrap_content\"\n" +
+            "          android:scaleType=\"fitXY\"\n" +
+            "          fresco:fadeDuration=\"400\"\n" +
+            "          fresco:failureImageScaleType=\"fitXY\"\n" +
+            "          fresco:placeholderImage=\"@mipmap/ic_launcher\"/>\n" +
+            "\n" +
+            "/**\n" +
+            " * 加载圆形图片\n" +
+            " */\n" +
+            "mySimpleDraweeView.setImageURI(picurl);\n" +
+            "\n" +
+            "RoundingParams roundingParams = RoundingParams.fromCornersRadius(5f);\n" +
+            "roundingParams.setRoundAsCircle(true);\n" +
+            "mySimpleDraweeView.getHierarchy().setRoundingParams(roundingParams);" +
+            "\n" +
+            "/**\n" +
+            " * 清除图片缓存\n" +
+            " */" +
+            "\n" +
+            "Fresco.getImagePipeline().clearCaches();\n";
+
     private SimpleDraweeView iv_pic2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_picture_fresco);
-        InitUI();
-
         iv_pic2 = (SimpleDraweeView) findViewById(R.id.iv_pic2);
+        iv_pic2.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -46,8 +68,7 @@ public class FrescoActivity extends BasePicActivity {
 
     @Override
     public void clearPic() {
-        ImagePipeline imagePipeline = Fresco.getImagePipeline();
-        imagePipeline.clearCaches();
+        Fresco.getImagePipeline().clearCaches();
         ToastUtil.makeText(getAQuery().getContext(), "清理完成");
     }
 

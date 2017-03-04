@@ -8,6 +8,23 @@ import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class PicassoActivity extends BasePicActivity {
 
+    public static String code = "" +
+            "/**\n" +
+            " * 加载圆形图片\n" +
+            " */\n" +
+            "CircleImageTransformation transform = new CircleImageTransformation();\n" +
+            "Picasso.with(this)\n" +
+            "        .load(picurl)\n" +
+            "        .placeholder(R.mipmap.ic_launcher)\n" +
+            "        .transform(transform)\n" +
+            "        .into(iv_pic);" +
+            "\n" +
+            "/**\n" +
+            " * 清除图片缓存\n" +
+            " */" +
+            "\n" +
+            "Picasso.with(this).invalidate(picurl);\n";
+
     @Override
     public void loadOrginPic() {
         super.loadOrginPic();

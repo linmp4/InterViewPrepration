@@ -4,16 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Model.ContextModel;
 import interviewpre.linmp4.com.interviewpre.Model.MainModel;
+import interviewpre.linmp4.com.interviewpre.UI.CodeView.CodeViewActivity;
 
-public class ListActivity extends BaseActivity {
+public class GobalListActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +20,14 @@ public class ListActivity extends BaseActivity {
         final ContextModel m = (ContextModel) getIntent().getSerializableExtra("Content");
         if (m != null && m.mainModel != null) {
             ListView listView = new ListView(this);
-            listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, getData(m.mainModel)));
+
+            listView.setAdapter(new GobalListAdapter(this, m.mainModel) {
+                @Override
+                void ClickCode(String code) {
+                    startActivity(new Intent(getAQuery().getContext(), CodeViewActivity.class).putExtra(CodeViewActivity.CODE, code));
+                }
+            });
+
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
@@ -35,12 +40,5 @@ public class ListActivity extends BaseActivity {
             });
             setContentView(listView);
         }
-    }
-
-    private List getData(List<MainModel> mainModel) {
-        List<String> data = new ArrayList<>();
-        for (MainModel m : mainModel)
-            data.add(m.title);
-        return data;
     }
 }

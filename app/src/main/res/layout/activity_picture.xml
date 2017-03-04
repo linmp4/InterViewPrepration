@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black">
@@ -30,6 +31,18 @@
             android:layout_height="300dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"/>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_pic2"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            fresco:fadeDuration="400"
+            fresco:failureImageScaleType="fitXY"
+            fresco:placeholderImage="@mipmap/ic_launcher"
+            />
     </LinearLayout>
 </ScrollView>
 

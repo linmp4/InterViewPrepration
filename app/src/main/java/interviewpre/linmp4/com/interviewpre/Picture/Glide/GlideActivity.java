@@ -8,6 +8,31 @@ import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class GlideActivity extends BasePicActivity {
 
+    public static String code = "" +
+            "/**\n" +
+            " * 加载圆形图片\n" +
+            " */" +
+            "\n" +
+            "GlideCircleTransform transform = new GlideCircleTransform(this);\n" +
+            "Glide.with(this).load(picurl)\n" +
+            "        .placeholder(R.mipmap.ic_launcher)\n" +
+            "        .transform(transform)\n" +
+            "        .into(iv_pic);" +
+            "\n" +
+            "/**\n" +
+            " * 清除图片缓存\n" +
+            " */" +
+            "\n" +
+            "Glide.clear(iv_pic);\n" +
+            "Glide.get(this).clearMemory();\n" +
+            "new Thread() {\n" +
+            "    @Override\n" +
+            "    public void run() {\n" +
+            "        super.run();\n" +
+            "        Glide.get(getAQuery().getContext()).clearDiskCache();\n" +
+            "    }\n" +
+            "}.start();\n";
+
     @Override
     public void loadOrginPic() {
         super.loadOrginPic();
@@ -16,7 +41,9 @@ public class GlideActivity extends BasePicActivity {
                 .into(iv_pic);
     }
 
-
+    /**
+     * 加载圆形图片
+     */
     @Override
     public void loadRoundPic() {
         super.loadOrginPic();
@@ -27,6 +54,9 @@ public class GlideActivity extends BasePicActivity {
                 .into(iv_pic);
     }
 
+    /**
+     * 清除图片缓存
+     */
     @Override
     public void clearPic() {
         Glide.clear(iv_pic);

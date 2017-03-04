@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Cache.ASimpleCache.ASimpleCacehActivity;
 import interviewpre.linmp4.com.interviewpre.Model.ContextModel;
 import interviewpre.linmp4.com.interviewpre.Model.MainModel;
@@ -23,28 +24,28 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-         final MainModel model1 =
-                new MainModel("网络框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+        final MainModel model1 =
+                new MainModel("网络框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("OkHttp3", OkHttpActivity.class));
                     add(new MainModel("Retrofit2", RetrofitActivity.class));
                     add(new MainModel("Volley", VolleyActivity.class));
                     add(new MainModel("android-async-http", AsyncHttpActivity.class));
                 }}));
 
-         final MainModel model2 =
-                new MainModel("图片加载框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
-                    add(new MainModel("Glide", GlideActivity.class));
-                    add(new MainModel("Picasso", PicassoActivity.class));
-                    add(new MainModel("Fresco", FrescoActivity.class));
+        final MainModel model2 =
+                new MainModel("图片加载框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+                    add(new MainModel("Glide", GlideActivity.class, GlideActivity.code));
+                    add(new MainModel("Picasso", PicassoActivity.class, PicassoActivity.code));
+                    add(new MainModel("Fresco", FrescoActivity.class, FrescoActivity.code));
                 }}));
 
-         final MainModel model3 =
-                new MainModel("UI框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+        final MainModel model3 =
+                new MainModel("UI框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("Material Design", MaterialActivity.class));
                 }}));
 
-         final MainModel model4 =
-                new MainModel("缓存框架", ListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+        final MainModel model4 =
+                new MainModel("缓存框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("ASimpleCache", ASimpleCacehActivity.class));
                 }}));
 
@@ -56,7 +57,7 @@ public class MainActivity extends BaseActivity {
             add(model4);
         }});
 
-        startActivity(new Intent(this, ListActivity.class).putExtra("Content", ctx));
+        startActivity(new Intent(this, GobalListActivity.class).putExtra("Content", ctx));
         finish();
     }
 

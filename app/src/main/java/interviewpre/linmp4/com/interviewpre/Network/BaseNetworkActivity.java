@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.R;
-import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
 
 public class BaseNetworkActivity extends BaseActivity {

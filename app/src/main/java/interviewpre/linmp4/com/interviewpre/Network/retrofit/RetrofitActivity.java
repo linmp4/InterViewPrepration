@@ -2,7 +2,6 @@ package interviewpre.linmp4.com.interviewpre.Network.retrofit;
 
 import interviewpre.linmp4.com.interviewpre.Network.BaseNetworkActivity;
 import interviewpre.linmp4.com.interviewpre.Network.HttpListener;
-import interviewpre.linmp4.com.interviewpre.Picture.Glide.GlideActivity;
 import interviewpre.linmp4.com.interviewpre.R;
 import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
 import retrofit2.Retrofit;

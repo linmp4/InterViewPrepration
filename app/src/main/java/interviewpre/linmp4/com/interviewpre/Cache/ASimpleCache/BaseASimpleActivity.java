@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import interviewpre.linmp4.com.interviewpre.R;
-import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
+import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class BaseASimpleActivity extends BaseActivity {
