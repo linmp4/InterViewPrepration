@@ -44,6 +44,15 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
         <activity
+            android:name=".Picture.Glide.GlideActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".Picture.Picasso.PicassoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+
+        <activity
             android:name=".UI.Material.ui.activity.MaterialActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>

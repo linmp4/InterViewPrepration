@@ -1,7 +1,5 @@
 package interviewpre.linmp4.com.interviewpre.Network.Volley;
 
-import java.util.LinkedHashMap;
-
 import interviewpre.linmp4.com.interviewpre.Network.BaseNetworkActivity;
 import interviewpre.linmp4.com.interviewpre.Network.HttpListener;
 import interviewpre.linmp4.com.interviewpre.R;

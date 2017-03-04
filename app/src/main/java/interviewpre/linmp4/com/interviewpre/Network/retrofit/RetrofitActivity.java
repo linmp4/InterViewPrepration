@@ -1,9 +1,8 @@
 package interviewpre.linmp4.com.interviewpre.Network.retrofit;
 
-import java.util.LinkedHashMap;
-
 import interviewpre.linmp4.com.interviewpre.Network.BaseNetworkActivity;
 import interviewpre.linmp4.com.interviewpre.Network.HttpListener;
+import interviewpre.linmp4.com.interviewpre.Picture.Glide.GlideActivity;
 import interviewpre.linmp4.com.interviewpre.R;
 import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
 import retrofit2.Retrofit;
@@ -14,7 +13,7 @@ public class RetrofitActivity extends BaseNetworkActivity {
     public void getAsynHttp() {
         getdefaultpd().showDialog();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BaseNetworkActivity.baseGetHead)
+                .baseUrl(baseGetHead)
                 .build();
         retrofit.create(FirService.class)
                 .getVersion()
@@ -36,7 +35,7 @@ public class RetrofitActivity extends BaseNetworkActivity {
     public void postAsynHttp() {
         getdefaultpd().showDialog();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BaseNetworkActivity.baseGetHead)
+                .baseUrl(baseGetHead)
                 .build();
         retrofit.create(StarService.class)
                 .getStar(map.get("consName"), map.get("type"), map.get("key"))
