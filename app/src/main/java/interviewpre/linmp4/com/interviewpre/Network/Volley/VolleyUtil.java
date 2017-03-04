@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import interviewpre.linmp4.com.interviewpre.MyApplication;
-import interviewpre.linmp4.com.interviewpre.Network.Okhttp.HttpListener;
+import interviewpre.linmp4.com.interviewpre.Network.HttpListener;
 import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 class VolleyUtil {

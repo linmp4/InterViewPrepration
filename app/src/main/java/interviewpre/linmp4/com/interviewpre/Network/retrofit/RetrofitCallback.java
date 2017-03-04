@@ -2,7 +2,7 @@ package interviewpre.linmp4.com.interviewpre.Network.retrofit;
 
 import java.io.IOException;
 
-import interviewpre.linmp4.com.interviewpre.Network.Okhttp.HttpListener;
+import interviewpre.linmp4.com.interviewpre.Network.HttpListener;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;

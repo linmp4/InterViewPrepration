@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-import interviewpre.linmp4.com.interviewpre.Network.Okhttp.HttpListener;
+import interviewpre.linmp4.com.interviewpre.Network.HttpListener;
 import interviewpre.linmp4.com.interviewpre.R;
 import interviewpre.linmp4.com.interviewpre.UI.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
