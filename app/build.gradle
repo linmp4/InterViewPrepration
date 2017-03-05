@@ -47,4 +47,5 @@ dependencies {
     compile 'com.github.tiagohm:CodeView:0.1.4'
     compile 'com.alibaba:fastjson:1.1.56.android'
     compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    compile 'de.greenrobot:eventbus:3.0.0-beta1'
 }

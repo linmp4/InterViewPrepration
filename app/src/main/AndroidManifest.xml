@@ -110,6 +110,10 @@
             android:name=".Json.Jackson.JacksonActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".Event.EventBus.EventBusActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
     </application>
 </manifest>
