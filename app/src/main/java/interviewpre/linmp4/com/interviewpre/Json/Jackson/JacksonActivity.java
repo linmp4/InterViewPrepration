@@ -1,15 +1,18 @@
-package interviewpre.linmp4.com.interviewpre.Json.Gson;
+package interviewpre.linmp4.com.interviewpre.Json.Jackson;
 
-import com.alibaba.fastjson.JSON;
+import android.os.Bundle;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
+import java.io.IOException;
 
 import interviewpre.linmp4.com.interviewpre.Json.BaseJsonActivity;
 import interviewpre.linmp4.com.interviewpre.Json.JsonModel;
 import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
-public class FastjsonActivity extends BaseJsonActivity {
+public class JacksonActivity extends BaseJsonActivity {
 
     private String code = "" +
-            "//必须独立出来,不能是内部类，必须加public修饰\n" +
             "public class JsonModel {\n" +
             "    public int resultCode;\n" +
             "    public String resultMsg;\n" +
@@ -21,15 +24,26 @@ public class FastjsonActivity extends BaseJsonActivity {
             "    public int id;\n" +
             "    public String name;\n" +
             "}\n\n" +
+            "ObjectMapper objectMapper = new ObjectMapper();\n" +
             "//解析json\n" +
-            "JsonModel jsonArray = JSON.parseObject(string, JsonModel.class)\n" +
+            "JsonModel jsonArray = objectMapper.readValue(string, JsonModel.class);\n" +
             "//对象转json\n" +
-            "String result = JSON.toJSONString(jsonArray);\n";
+            "String result = objectMapper.writeValueAsString(jsonArray);\n";
+
+    private ObjectMapper objectMapper;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        objectMapper = new ObjectMapper();
+    }
 
     @Override
     public void StartJson(String result) {
         try {
-            jsonArray = JSON.parseObject(jsonArrayString, JsonModel.class);
+            jsonArray = objectMapper.readValue(jsonArrayString, JsonModel.class);
             result = jsonArray.toString();
         } catch (Exception e) {
             e.printStackTrace();
@@ -41,7 +55,11 @@ public class FastjsonActivity extends BaseJsonActivity {
     public void toJson(String result) {
         if (jsonArray == null)
             ToastUtil.makeText(this, "请先解析json");
-        result = JSON.toJSONString(jsonArray);
+        try {
+            result = objectMapper.writeValueAsString(jsonArray);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         super.toJson(result);
     }
 

@@ -17,7 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/ASL2.0'
+    }
     useLibrary 'org.apache.http.legacy'
 }
 
@@ -42,4 +46,5 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.github.tiagohm:CodeView:0.1.4'
     compile 'com.alibaba:fastjson:1.1.56.android'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 }

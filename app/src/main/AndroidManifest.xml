@@ -103,7 +103,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
-            android:name=".Json.Gson.FastjsonActivity"
+            android:name=".Json.Fastjson.FastjsonActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".Json.Jackson.JacksonActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
 
