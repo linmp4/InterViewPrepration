@@ -1,5 +1,6 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,9 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="请输入要解析的json ..."
-            android:text="要解析的json"
-            android:textSize="16sp">
+            android:textSize="16sp"
+            tools:text="要解析的json">
 
             <requestFocus/>
         </EditText>
@@ -25,6 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="解析"/>
+
+        <Button
+            android:id="@+id/bt_package"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="转json"/>
 
         <TextView
             android:id="@+id/tv_string_res"
