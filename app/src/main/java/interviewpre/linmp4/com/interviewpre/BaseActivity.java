@@ -18,7 +18,7 @@ public class BaseActivity extends AppCompatActivity {
 
     private AQuery aQuery;
     private DefaultProgressDialog defaultpd;
-    private String ActionBartitle;
+    public String ActionBartitle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

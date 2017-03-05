@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Cache.ASimpleCache.ASimpleCacehActivity;
+import interviewpre.linmp4.com.interviewpre.Json.Gson.FastjsonActivity;
 import interviewpre.linmp4.com.interviewpre.Json.Gson.GsonActivity;
 import interviewpre.linmp4.com.interviewpre.Model.ContextModel;
 import interviewpre.linmp4.com.interviewpre.Model.MainModel;
@@ -53,6 +54,7 @@ public class MainActivity extends BaseActivity {
         final MainModel model5 =
                 new MainModel("Json解析框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("Gson", GsonActivity.class));
+                    add(new MainModel("Fastjson", FastjsonActivity.class));
                 }}));
 
 

@@ -5,10 +5,33 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.R;
+import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
 
 public class BaseJsonActivity extends BaseActivity {
+
+    public JsonModel jsonArray;
+
+
+    public String jsonArrayString = "{\n" +
+            "    \"resultCode\": \"100\",\n" +
+            "    \"resultMsg\": \"成功\",\n" +
+            "    \"isSuccess\": true,\n" +
+            "    \"resultData\": [\n" +
+            "        {\n" +
+            "            \"id\": \"1\",\n" +
+            "            \"name\": \"顺丰速运\"\n" +
+            "        },\n" +
+            "        {\n" +
+            "            \"id\": \"2\",\n" +
+            "            \"name\": \"圆通\"\n" +
+            "        }\n" +
+            "    ],\n" +
+            "    \"resultThirdCode\": null\n" +
+            "}";
 
     public EditText et_string_input;
     public TextView tv_string_res;
@@ -45,6 +68,11 @@ public class BaseJsonActivity extends BaseActivity {
     }
 
     public void toJson(String result) {
+        try {
+            result = StringCheck.Tojson(result);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         et_string_input.setText(result);
     }
 

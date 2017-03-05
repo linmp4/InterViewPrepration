@@ -30,7 +30,7 @@
             android:id="@+id/bt_package"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="转json"/>
+            android:text="对象转json"/>
 
         <TextView
             android:id="@+id/tv_string_res"

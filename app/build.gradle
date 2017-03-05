@@ -41,4 +41,5 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.facebook.fresco:fresco:0.12.0'
     compile 'com.github.tiagohm:CodeView:0.1.4'
+    compile 'com.alibaba:fastjson:1.1.56.android'
 }
