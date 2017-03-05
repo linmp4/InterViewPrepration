@@ -59,10 +59,12 @@
         <activity
             android:name=".UI.Material.ui.activity.MaterialActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".UI.Material.ui.activity.RecyclerDetailActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity
             android:name=".UI.GobalListActivity"

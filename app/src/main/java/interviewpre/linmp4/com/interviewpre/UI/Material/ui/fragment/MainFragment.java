@@ -98,4 +98,8 @@ public class MainFragment extends Fragment {
             mList.add(recyclerBean);
         }
     }
+
+    public String getcode() {
+        return null;
+    }
 }

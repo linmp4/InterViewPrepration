@@ -83,4 +83,8 @@ public class SnackbarFragment extends Fragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
+    public String getcode() {
+        return null;
+    }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ContextModel implements Serializable {
     public List<MainModel> mainModel = new ArrayList<>();
+    public String ActionBartitle;
 
     public ContextModel() {
     }

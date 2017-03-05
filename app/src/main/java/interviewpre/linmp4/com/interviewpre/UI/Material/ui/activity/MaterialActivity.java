@@ -1,5 +1,6 @@
 package interviewpre.linmp4.com.interviewpre.UI.Material.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
@@ -8,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -16,10 +18,13 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import interviewpre.linmp4.com.interviewpre.R;
+import interviewpre.linmp4.com.interviewpre.UI.CodeView.CodeViewActivity;
 import interviewpre.linmp4.com.interviewpre.UI.Material.ui.fragment.BackHandledFragment;
 import interviewpre.linmp4.com.interviewpre.UI.Material.ui.fragment.MainFragment;
 import interviewpre.linmp4.com.interviewpre.UI.Material.ui.fragment.SnackbarFragment;
 import interviewpre.linmp4.com.interviewpre.UI.Material.ui.fragment.TextInputLayoutFragment;
+import interviewpre.linmp4.com.interviewpre.Util.StringCheck;
+import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class MaterialActivity extends AppCompatActivity implements BackHandledFragment.BackHandlerInterface {
 
@@ -37,6 +42,7 @@ public class MaterialActivity extends AppCompatActivity implements BackHandledFr
     DrawerLayout drawerLayout;
 
     private BackHandledFragment selectedFragment;
+    private String code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,16 +62,22 @@ public class MaterialActivity extends AppCompatActivity implements BackHandledFr
     }
 
     private void switchToMain() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new MainFragment()).commit();
+        MainFragment main = new MainFragment();
+        code = main.getcode();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, main).commit();
         toolbarTitle.setText("主页");
     }
 
     private void switchToExample() {
+        TextInputLayoutFragment main = new TextInputLayoutFragment();
+        code = main.getcode();
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new TextInputLayoutFragment()).commit();
         toolbarTitle.setText("MD输入框");
     }
 
     private void switchToBlog() {
+        SnackbarFragment main = new SnackbarFragment();
+        code = main.getcode();
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_content, new SnackbarFragment()).commit();
         toolbarTitle.setText("Snackbar");
     }
@@ -100,6 +112,27 @@ public class MaterialActivity extends AppCompatActivity implements BackHandledFr
         this.selectedFragment = backHandledFragment;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbarmenu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_item_showcode:
+                if (StringCheck.isEmpty(code))
+                    ToastUtil.makeText(this, "未设置核心代码");
+                else
+                    startActivity(new Intent(this, CodeViewActivity.class)
+                            .putExtra(CodeViewActivity.CODE, code));
+                break;
+            default:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private long exitTime = 0;
 
@@ -117,8 +150,6 @@ public class MaterialActivity extends AppCompatActivity implements BackHandledFr
         if (selectedFragment == null || !selectedFragment.onBackPressed()) {
             if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
                 drawerLayout.closeDrawer(Gravity.LEFT);
-            } else {
-                doExitApp();
             }
         }
     }

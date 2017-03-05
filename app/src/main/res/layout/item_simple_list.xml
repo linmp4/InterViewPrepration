@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants"
-    android:padding="10dp">
+    android:padding="15dp">
 
     <TextView
         android:id="@+id/tv_title"
@@ -13,17 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="18sp"
         tools:text="test"/>
-
-    <Button
-        android:id="@+id/bt_code"
-        android:layout_width="65dp"
-        android:layout_height="32dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/selector_btn_blue"
-        android:text="核心代码"
-        android:textColor="@android:color/white"
-        android:textSize="12sp"/>
 </RelativeLayout>

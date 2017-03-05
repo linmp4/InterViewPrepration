@@ -8,7 +8,7 @@ import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class GlideActivity extends BasePicActivity {
 
-    public static String code = "" +
+    private String code = "" +
             "/**\n" +
             " * 加载圆形图片\n" +
             " */" +
@@ -32,6 +32,11 @@ public class GlideActivity extends BasePicActivity {
             "        Glide.get(getAQuery().getContext()).clearDiskCache();\n" +
             "    }\n" +
             "}.start();\n";
+
+    @Override
+    public String getCode() {
+        return code;
+    }
 
     @Override
     public void loadOrginPic() {

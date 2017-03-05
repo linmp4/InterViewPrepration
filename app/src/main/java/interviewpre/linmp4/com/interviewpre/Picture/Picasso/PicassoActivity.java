@@ -8,7 +8,7 @@ import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class PicassoActivity extends BasePicActivity {
 
-    public static String code = "" +
+    private String code = "" +
             "/**\n" +
             " * 加载圆形图片\n" +
             " */\n" +
@@ -24,6 +24,11 @@ public class PicassoActivity extends BasePicActivity {
             " */" +
             "\n" +
             "Picasso.with(this).invalidate(picurl);\n";
+
+    @Override
+    public String getCode() {
+        return code;
+    }
 
     @Override
     public void loadOrginPic() {

@@ -33,8 +33,8 @@ public class BaseNetworkActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volley);
+        super.onCreate(savedInstanceState);
 
         ListView listView = (ListView) findViewById(R.id.lv_view);
         listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, getData()));

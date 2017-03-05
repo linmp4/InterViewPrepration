@@ -51,4 +51,7 @@ public class TextInputLayoutFragment extends Fragment {
         return view;
     }
 
+    public String getcode() {
+        return null;
+    }
 }

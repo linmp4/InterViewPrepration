@@ -21,8 +21,8 @@ public class BasePicActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picture);
+        super.onCreate(savedInstanceState);
 
         iv_pic = (ImageView) findViewById(R.id.iv_pic);
 

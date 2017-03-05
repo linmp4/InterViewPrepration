@@ -13,7 +13,7 @@ import interviewpre.linmp4.com.interviewpre.Util.ToastUtil;
 
 public class FrescoActivity extends BasePicActivity {
 
-    public static String code = "" +
+    private String code = "" +
             "<!--XML布局-->\n" +
             "<com.facebook.drawee.view.SimpleDraweeView\n" +
             "          android:layout_width=\"wrap_content\"\n" +
@@ -37,6 +37,11 @@ public class FrescoActivity extends BasePicActivity {
             " */" +
             "\n" +
             "Fresco.getImagePipeline().clearCaches();\n";
+
+    @Override
+    public String getCode() {
+        return code;
+    }
 
     private SimpleDraweeView iv_pic2;
 

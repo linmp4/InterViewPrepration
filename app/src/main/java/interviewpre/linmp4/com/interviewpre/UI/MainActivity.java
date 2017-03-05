@@ -34,9 +34,9 @@ public class MainActivity extends BaseActivity {
 
         final MainModel model2 =
                 new MainModel("图片加载框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
-                    add(new MainModel("Glide", GlideActivity.class, GlideActivity.code));
-                    add(new MainModel("Picasso", PicassoActivity.class, PicassoActivity.code));
-                    add(new MainModel("Fresco", FrescoActivity.class, FrescoActivity.code));
+                    add(new MainModel("Glide", GlideActivity.class));
+                    add(new MainModel("Picasso", PicassoActivity.class));
+                    add(new MainModel("Fresco", FrescoActivity.class));
                 }}));
 
         final MainModel model3 =
