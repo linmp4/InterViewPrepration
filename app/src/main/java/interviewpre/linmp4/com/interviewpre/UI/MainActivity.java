@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Cache.ASimpleCache.ASimpleCacehActivity;
+import interviewpre.linmp4.com.interviewpre.Json.Gson.GsonActivity;
 import interviewpre.linmp4.com.interviewpre.Model.ContextModel;
 import interviewpre.linmp4.com.interviewpre.Model.MainModel;
 import interviewpre.linmp4.com.interviewpre.Network.Okhttp.OkHttpActivity;
@@ -49,12 +50,18 @@ public class MainActivity extends BaseActivity {
                     add(new MainModel("ASimpleCache", ASimpleCacehActivity.class));
                 }}));
 
+        final MainModel model5 =
+                new MainModel("Json解析框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+                    add(new MainModel("Gson", GsonActivity.class));
+                }}));
+
 
         ContextModel ctx = new ContextModel(new ArrayList<MainModel>() {{
             add(model1);
             add(model2);
             add(model3);
             add(model4);
+            add(model5);
         }});
 
         startActivity(new Intent(this, GobalListActivity.class).putExtra("Content", ctx));
