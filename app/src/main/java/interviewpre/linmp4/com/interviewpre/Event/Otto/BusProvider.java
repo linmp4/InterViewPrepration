@@ -3,7 +3,7 @@ package interviewpre.linmp4.com.interviewpre.Event.Otto;
 import com.squareup.otto.Bus;
 import com.squareup.otto.ThreadEnforcer;
 
-class BusProvider {
+public class BusProvider {
 
     private static final Bus BUS = new Bus(ThreadEnforcer.MAIN);
     private static final Bus BUS2 = new Bus(ThreadEnforcer.ANY);
@@ -12,11 +12,11 @@ class BusProvider {
 
     }
 
-    static Bus getInstance() {
+    public static Bus getInstance() {
         return BUS;
     }
 
-    static Bus getInstance2() {
+    public static Bus getInstance2() {
         return BUS2;
     }
 }

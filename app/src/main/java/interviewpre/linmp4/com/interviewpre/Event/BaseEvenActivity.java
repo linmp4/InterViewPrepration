@@ -71,7 +71,6 @@ public class BaseEvenActivity extends BaseActivity {
 
     public void clearText() {
         totalText = "";
-        getAQuery().id(R.id.tv_code).text(totalText);
     }
 
     public void showText(String temp) {

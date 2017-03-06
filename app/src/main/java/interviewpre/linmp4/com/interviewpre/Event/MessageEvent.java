@@ -1,7 +1,6 @@
 package interviewpre.linmp4.com.interviewpre.Event;
 
 public class MessageEvent {
-
     private String message;
 
     public MessageEvent(String txt) {
