@@ -46,6 +46,15 @@ public class BaseEvenActivity extends BaseActivity {
                 unregister();
             }
         });
+        getAQuery().id(R.id.bt_next_act).clicked(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                next_act();
+            }
+        });
+    }
+
+    public void next_act() {
     }
 
     public void unregister() {

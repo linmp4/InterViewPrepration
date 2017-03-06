@@ -1,11 +1,14 @@
 package interviewpre.linmp4.com.interviewpre.Event.EventBus;
 
 import android.os.Bundle;
+import android.view.View;
 
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 import interviewpre.linmp4.com.interviewpre.Event.BaseEvenActivity;
+import interviewpre.linmp4.com.interviewpre.Event.MessageEvent;
+import interviewpre.linmp4.com.interviewpre.R;
 
 public class EventBusActivity extends BaseEvenActivity {
 
@@ -13,6 +16,8 @@ public class EventBusActivity extends BaseEvenActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
+
+        getAQuery().id(R.id.bt_next_act).visibility(View.GONE);
     }
 
     @Override

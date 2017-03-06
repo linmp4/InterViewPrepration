@@ -114,6 +114,15 @@
             android:name=".Event.EventBus.EventBusActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
-
+        <activity
+            android:name=".Event.Otto.OttoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity
+            android:name=".Event.Otto.SecondOttoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        
     </application>
 </manifest>

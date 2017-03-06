@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import interviewpre.linmp4.com.interviewpre.BaseActivity;
 import interviewpre.linmp4.com.interviewpre.Cache.ASimpleCache.ASimpleCacehActivity;
 import interviewpre.linmp4.com.interviewpre.Event.EventBus.EventBusActivity;
+import interviewpre.linmp4.com.interviewpre.Event.Otto.OttoActivity;
 import interviewpre.linmp4.com.interviewpre.Json.Fastjson.FastjsonActivity;
 import interviewpre.linmp4.com.interviewpre.Json.Gson.GsonActivity;
 import interviewpre.linmp4.com.interviewpre.Json.Jackson.JacksonActivity;
@@ -63,6 +64,7 @@ public class MainActivity extends BaseActivity {
         final MainModel model6 =
                 new MainModel("事件总线", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
                     add(new MainModel("EventBus", EventBusActivity.class));
+                    add(new MainModel("Otto", OttoActivity.class));
                 }}));
 
 
