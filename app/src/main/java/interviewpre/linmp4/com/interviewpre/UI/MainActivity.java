@@ -22,6 +22,8 @@ import interviewpre.linmp4.com.interviewpre.Picture.Fresco.FrescoActivity;
 import interviewpre.linmp4.com.interviewpre.Picture.Glide.GlideActivity;
 import interviewpre.linmp4.com.interviewpre.Picture.Picasso.PicassoActivity;
 import interviewpre.linmp4.com.interviewpre.UI.Material.ui.activity.MaterialActivity;
+import interviewpre.linmp4.com.interviewpre.Video.GSYVideoPlayer.GSYListActivity;
+import interviewpre.linmp4.com.interviewpre.Video.JieCao.JieCaoVideoListViewActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -35,6 +37,7 @@ public class MainActivity extends BaseActivity {
                     add(new MainModel("Retrofit2", RetrofitActivity.class));
                     add(new MainModel("Volley", VolleyActivity.class));
                     add(new MainModel("android-async-http", AsyncHttpActivity.class));
+//                    add(new MainModel("Socket", AsyncHttpActivity.class));
                 }}));
 
         final MainModel model2 =
@@ -67,6 +70,12 @@ public class MainActivity extends BaseActivity {
                     add(new MainModel("Otto", OttoActivity.class));
                 }}));
 
+        final MainModel model7 =
+                new MainModel("音视频框架", GobalListActivity.class, new ContextModel(new ArrayList<MainModel>() {{
+                    add(new MainModel("JieCaoVideo", JieCaoVideoListViewActivity.class));
+                    add(new MainModel("GSYVideoPlayer", GSYListActivity.class));
+                }}));
+
 
         ContextModel ctx = new ContextModel(new ArrayList<MainModel>() {{
             add(model1);
@@ -75,6 +84,7 @@ public class MainActivity extends BaseActivity {
             add(model4);
             add(model5);
             add(model6);
+            add(model7);
         }});
 
         startActivity(new Intent(this, GobalListActivity.class).putExtra("Content", ctx));
